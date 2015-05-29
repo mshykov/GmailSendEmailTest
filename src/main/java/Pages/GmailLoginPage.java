@@ -31,4 +31,8 @@ public class GmailLoginPage {
     public void open(String url) {
         Configuration.driver.get(url);
     }
+
+    public void enterString(WebElement element, String string) {
+
+    }
 }

@@ -2,10 +2,10 @@ package Tests;
 
 import Configs.Configuration;
 import Pages.GmailLoginPage;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.AfterClass;
 import org.junit.Test;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,19 +15,21 @@ import java.util.concurrent.TimeUnit;
  */
 public class SendEmailTest {
 
-    @Before
-    public void openBrowser() {
-        Configuration.driver = new ChromeDriver();
+    @BeforeClass
+    public static void setup() {
+        Configuration.driver = new FirefoxDriver();
     }
 
-    @After
-    public void closeBrowser() {
+    @AfterClass
+    public static void tearDown() {
         Configuration.driver.close();
     }
 
     @Test
     public void loginToGmail() {
         GmailLoginPage loginPage = new GmailLoginPage(Configuration.driver);
+        loginPage.open("https://www.gmail.com");
+
 
         Configuration.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
