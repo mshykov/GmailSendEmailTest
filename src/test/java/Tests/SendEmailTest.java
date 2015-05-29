@@ -1,3 +1,4 @@
+package Tests;
 
 import Configs.Configuration;
 import Pages.GmailLoginPage;
@@ -12,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  * Created by M. Shykov on 5/29/2015.
  * Test Cases
  */
-public class GmailSendEmailTest {
+public class SendEmailTest {
 
     @Before
     public void openBrowser() {
