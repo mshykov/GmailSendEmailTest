@@ -4,9 +4,7 @@ import Configs.Configuration;
 import Pages.GmailInboxPage;
 import Pages.GmailLoginPage;
 import Pages.GmailSearchResultPage;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -19,15 +17,15 @@ import static org.junit.Assert.assertEquals;
  */
 public class SendEmailTest {
 
-    @BeforeClass
-    public static void setup() {
+    @Before
+    public void setup() {
         Configuration.driver = new FirefoxDriver();
         Configuration.driver.manage().window().maximize();
         Configuration.driver.manage().timeouts().implicitlyWait(Configuration.timeout, TimeUnit.SECONDS);
     }
 
-    @AfterClass
-    public static void tearDown() {
+    @After
+    public void tearDown() {
         Configuration.driver.quit();
     }
 
@@ -35,7 +33,7 @@ public class SendEmailTest {
     public void sendEmailToHimself() {
 
         GmailLoginPage loginPage = new GmailLoginPage(Configuration.driver);
-        loginPage.open("https://www.gmail.com");
+        loginPage.open(Configuration.gmailUrl);
         loginPage.enterLoginName();
         loginPage.enterPassword();
 
