@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
@@ -31,6 +34,12 @@ public class GmailInboxPage {
 
     public GmailInboxPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
+    }
+
+    public String getcomposeButtonName() {
+        new WebDriverWait(Configuration.driver, Configuration.timeout).until(
+                ExpectedConditions.textToBePresentInElement(composeButton, "COMPOSE"));
+        return composeButton.getText();
     }
 
     @Step

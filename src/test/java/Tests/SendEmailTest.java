@@ -38,6 +38,7 @@ public class SendEmailTest {
         loginPage.enterPassword();
 
         GmailInboxPage inboxPage = new GmailInboxPage(Configuration.driver);
+        assertEquals(inboxPage.getcomposeButtonName(), "COMPOSE");
         inboxPage.fillInAndSendEmail();
 
         GmailSearchResultPage searchResultPage = new GmailSearchResultPage(Configuration.driver);
