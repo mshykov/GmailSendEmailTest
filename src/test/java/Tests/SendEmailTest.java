@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Created by M. Shykov on 5/29/2015.
- * Test Cases
+ * Test Case
  */
 public class SendEmailTest {
 
@@ -38,11 +38,11 @@ public class SendEmailTest {
         loginPage.enterPassword();
 
         GmailInboxPage inboxPage = new GmailInboxPage(Configuration.driver);
-        assertEquals(inboxPage.getcomposeButtonName(), "COMPOSE");
+        assertEquals(inboxPage.getComposeButtonName(), "COMPOSE");
         inboxPage.fillInAndSendEmail();
 
         GmailSearchResultPage searchResultPage = new GmailSearchResultPage(Configuration.driver);
         searchResultPage.searchEmailInInbox();
-        assertEquals(searchResultPage.getSearchResult(), 1);
+        assertEquals(searchResultPage.getSizeOfSearchResult(), 1);
     }
 }

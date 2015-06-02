@@ -28,12 +28,12 @@ public class GmailSearchResultPage {
 
     @Step
     public void searchEmailInInbox() {
-        searchLine.sendKeys(Configuration.subject + Keys.ENTER);
+        searchLine.sendKeys("label:inbox " + Configuration.subject + Keys.ENTER);
     }
 
-    public int getSearchResult() {
+    public int getSizeOfSearchResult() {
         try {
-            Thread.sleep(1500); //3000 milliseconds
+            Thread.sleep(1500); //milliseconds
         } catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
