@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import ru.yandex.qatools.allure.annotations.Step;
 
 /**
  * Created by M. Shykov on 5/29/2015.
@@ -18,7 +19,7 @@ public class GmailLoginPage {
     @FindBy(css = "#next")
     WebElement nextButton;
 
-    @FindBy(css = "#Password")
+    @FindBy(css = "#Passwd")
     WebElement passwordField;
 
     @FindBy(css = "#signIn")
@@ -32,7 +33,15 @@ public class GmailLoginPage {
         Configuration.driver.get(url);
     }
 
-    public void enterString(WebElement element, String string) {
+    @Step
+    public void enterLoginName() {
+        emailField.sendKeys(Configuration.loginName);
+        nextButton.click();
+    }
 
+    @Step
+    public void enterPassword(){
+        passwordField.sendKeys(Configuration.password);
+        signInButton.click();
     }
 }
