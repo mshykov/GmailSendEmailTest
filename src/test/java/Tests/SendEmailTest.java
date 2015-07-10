@@ -30,7 +30,7 @@ public class SendEmailTest {
     }
 
     @Test
-    public void sendEmailToHimself() {
+    public void sendEmailToMyself() {
 
         GmailLoginPage loginPage = new GmailLoginPage(Configuration.driver);
         loginPage.open(Configuration.gmailUrl);

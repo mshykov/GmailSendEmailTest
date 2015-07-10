@@ -41,10 +41,11 @@ public class GmailInboxPage {
         return composeButton.getText();
     }
 
-     @Step
-     public void openNewEmailForm() {
+    @Step
+    public void openNewEmailForm() {
          composeButton.click();
     }
+
     @Step
     public void fillInToLine() {
         toLine.sendKeys(Configuration.loginName + Keys.TAB);
